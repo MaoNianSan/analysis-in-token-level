@@ -1,0 +1,278 @@
+============================================================
+DEVELOPMENT SECTION (test.csv)
+============================================================
+Development set size: 71
+Model: TF-IDF + Logistic Regression
+Number of features: 8202
+
+------------------------------------------------------------
+Internal Validation Results (Repeated Stratified 5-fold CV, 3 repeats)
+------------------------------------------------------------
+Accuracy: 0.8016 ± 0.1061
+Balanced_accuracy: 0.8012 ± 0.1061
+Precision: 0.8567 ± 0.1244
+Recall: 0.7238 ± 0.1688
+Specificity: 0.8786 ± 0.1023
+F1: 0.7751 ± 0.1371
+Roc_auc: 0.8733 ± 0.0907
+Average_precision: 0.8988 ± 0.0730
+Mcc: 0.6168 ± 0.2116
+Log_loss: 0.5036 ± 0.0679
+Brier: 0.1640 ± 0.0311
+
+------------------------------------------------------------
+Development-Set Resubstitution (debug only; optimistic)
+------------------------------------------------------------
+Evaluation Metrics
+------------------------------------------------------------
+Accuracy:              1.0000 (95% CI: 1.0000 - 1.0000)
+Balanced Accuracy:     1.0000
+Precision (AD):        1.0000
+Recall/Sensitivity:    1.0000
+Specificity:           1.0000
+F1-Score (AD):         1.0000
+ROC-AUC:               1.0000 (95% CI: 1.0000 - 1.0000)
+PR-AUC:                1.0000
+MCC:                   1.0000
+Log Loss:              0.1136
+Brier Score:           0.0137
+
+------------------------------------------------------------
+Confusion Matrix (Raw)
+------------------------------------------------------------
+[[36  0]
+ [ 0 35]]
+
+------------------------------------------------------------
+Confusion Matrix (Row-normalized)
+------------------------------------------------------------
+[[1. 0.]
+ [0. 1.]]
+
+------------------------------------------------------------
+Classification Report
+------------------------------------------------------------
+              precision    recall  f1-score   support
+
+     Control       1.00      1.00      1.00        36
+          AD       1.00      1.00      1.00        35
+
+    accuracy                           1.00        71
+   macro avg       1.00      1.00      1.00        71
+weighted avg       1.00      1.00      1.00        71
+
+
+============================================================
+EXTERNAL TEST SECTION (ad.csv + control.csv)
+============================================================
+Number of samples: 166
+Decision threshold: 0.4800
+
+------------------------------------------------------------
+Evaluation Metrics
+------------------------------------------------------------
+Accuracy:              0.7410 (95% CI: 0.6747 - 0.8012)
+Balanced Accuracy:     0.7418
+Precision (AD):        0.7683
+Recall/Sensitivity:    0.7241
+Specificity:           0.7595
+F1-Score (AD):         0.7456
+ROC-AUC:               0.8237 (95% CI: 0.7547 - 0.8813)
+PR-AUC:                0.8442
+MCC:                   0.4831
+Log Loss:              0.5357
+Brier Score:           0.1784
+
+------------------------------------------------------------
+Confusion Matrix (Raw)
+------------------------------------------------------------
+[[60 19]
+ [24 63]]
+
+------------------------------------------------------------
+Confusion Matrix (Row-normalized)
+------------------------------------------------------------
+[[0.75949367 0.24050633]
+ [0.27586207 0.72413793]]
+
+------------------------------------------------------------
+Classification Report
+------------------------------------------------------------
+              precision    recall  f1-score   support
+
+     Control       0.71      0.76      0.74        79
+          AD       0.77      0.72      0.75        87
+
+    accuracy                           0.74       166
+   macro avg       0.74      0.74      0.74       166
+weighted avg       0.74      0.74      0.74       166
+
+
+------------------------------------------------------------
+Sample-wise Results (External Test):
+Sample 43: True=1.0, Pred=1, Prob=0.7732
+Sample 36: True=1.0, Pred=1, Prob=0.6613
+Sample 24: True=1.0, Pred=0, Prob=0.4096
+Sample 45: True=1.0, Pred=1, Prob=0.7893
+Sample 59: True=1.0, Pred=0, Prob=0.2416
+Sample 68: True=1.0, Pred=0, Prob=0.4762
+Sample 77: True=1.0, Pred=1, Prob=0.5186
+Sample 75: True=1.0, Pred=1, Prob=0.6524
+Sample 74: True=1.0, Pred=0, Prob=0.3221
+Sample 49: True=1.0, Pred=1, Prob=0.7324
+Sample 72: True=1.0, Pred=1, Prob=0.5050
+Sample 71: True=1.0, Pred=0, Prob=0.2992
+Sample 60: True=1.0, Pred=1, Prob=0.6265
+Sample 47: True=1.0, Pred=1, Prob=0.5612
+Sample 53: True=1.0, Pred=0, Prob=0.1061
+Sample 55: True=1.0, Pred=1, Prob=0.6147
+Sample 70: True=1.0, Pred=1, Prob=0.6773
+Sample 110: True=1.0, Pred=1, Prob=0.6064
+Sample 109: True=1.0, Pred=1, Prob=0.6743
+Sample 92: True=1.0, Pred=1, Prob=0.5381
+Sample 89: True=1.0, Pred=1, Prob=0.7284
+Sample 126: True=1.0, Pred=1, Prob=0.8189
+Sample 144: True=1.0, Pred=1, Prob=0.6443
+Sample 106: True=1.0, Pred=1, Prob=0.5595
+Sample 125: True=1.0, Pred=1, Prob=0.7785
+Sample 98: True=1.0, Pred=1, Prob=0.6564
+Sample 116: True=1.0, Pred=1, Prob=0.9513
+Sample 138: True=1.0, Pred=1, Prob=0.7553
+Sample 123: True=1.0, Pred=1, Prob=0.7664
+Sample 130: True=1.0, Pred=1, Prob=0.6729
+Sample 128: True=1.0, Pred=1, Prob=0.7330
+Sample 141: True=1.0, Pred=0, Prob=0.3800
+Sample 188: True=1.0, Pred=0, Prob=0.2908
+Sample 142: True=1.0, Pred=1, Prob=0.8079
+Sample 187: True=1.0, Pred=0, Prob=0.4135
+Sample 112: True=1.0, Pred=0, Prob=0.3534
+Sample 93: True=1.0, Pred=1, Prob=0.7619
+Sample 134: True=1.0, Pred=1, Prob=0.8390
+Sample 209: True=1.0, Pred=1, Prob=0.8981
+Sample 206: True=1.0, Pred=1, Prob=0.7136
+Sample 216: True=1.0, Pred=1, Prob=0.5015
+Sample 211: True=1.0, Pred=0, Prob=0.4265
+Sample 205: True=1.0, Pred=0, Prob=0.4334
+Sample 218: True=1.0, Pred=1, Prob=0.7294
+Sample 198: True=1.0, Pred=1, Prob=0.8017
+Sample 250: True=1.0, Pred=1, Prob=0.6035
+Sample 249: True=1.0, Pred=1, Prob=0.6714
+Sample 224: True=1.0, Pred=0, Prob=0.2693
+Sample 229: True=1.0, Pred=1, Prob=0.9089
+Sample 247: True=1.0, Pred=0, Prob=0.3520
+Sample 234: True=1.0, Pred=1, Prob=0.5757
+Sample 233: True=1.0, Pred=0, Prob=0.2995
+Sample 245: True=1.0, Pred=1, Prob=0.7411
+Sample 232: True=1.0, Pred=1, Prob=0.6761
+Sample 223: True=1.0, Pred=1, Prob=0.8534
+Sample 253: True=1.0, Pred=0, Prob=0.4611
+Sample 222: True=1.0, Pred=1, Prob=0.6870
+Sample 248: True=1.0, Pred=0, Prob=0.1762
+Sample 236: True=1.0, Pred=1, Prob=0.6052
+Sample 246: True=1.0, Pred=1, Prob=0.5321
+Sample 228: True=1.0, Pred=0, Prob=0.1291
+Sample 237: True=1.0, Pred=1, Prob=0.6730
+Sample 189: True=1.0, Pred=0, Prob=0.3208
+Sample 63: True=1.0, Pred=1, Prob=0.5560
+Sample 202: True=1.0, Pred=1, Prob=0.5420
+Sample 39: True=1.0, Pred=0, Prob=0.4330
+Sample 122: True=1.0, Pred=1, Prob=0.9465
+Sample 244: True=1.0, Pred=1, Prob=0.7688
+Sample 190: True=1.0, Pred=0, Prob=0.2649
+Sample 215: True=1.0, Pred=1, Prob=0.7104
+Sample 192: True=1.0, Pred=1, Prob=0.8638
+Sample 90: True=1.0, Pred=1, Prob=0.6304
+Sample 25: True=1.0, Pred=1, Prob=0.6104
+Sample 31: True=1.0, Pred=1, Prob=0.6375
+Sample 197: True=1.0, Pred=1, Prob=0.5761
+Sample 27: True=1.0, Pred=0, Prob=0.4441
+Sample 56: True=1.0, Pred=1, Prob=0.6907
+Sample 54: True=1.0, Pred=1, Prob=0.7958
+Sample 78: True=1.0, Pred=1, Prob=0.6852
+Sample 200: True=1.0, Pred=0, Prob=0.4554
+Sample 28: True=1.0, Pred=1, Prob=0.5249
+Sample 220: True=1.0, Pred=1, Prob=0.6033
+Sample 46: True=1.0, Pred=1, Prob=0.5059
+Sample 212: True=1.0, Pred=1, Prob=0.4839
+Sample 35: True=1.0, Pred=1, Prob=0.5132
+Sample 33: True=1.0, Pred=1, Prob=0.6829
+Sample 32: True=1.0, Pred=0, Prob=0.4642
+Sample 7: True=0.0, Pred=0, Prob=0.2589
+Sample 8: True=0.0, Pred=0, Prob=0.1904
+Sample 5: True=0.0, Pred=0, Prob=0.1909
+Sample 2: True=0.0, Pred=0, Prob=0.1206
+Sample 18: True=0.0, Pred=0, Prob=0.4060
+Sample 22: True=0.0, Pred=1, Prob=0.7324
+Sample 19: True=0.0, Pred=0, Prob=0.2359
+Sample 21: True=0.0, Pred=0, Prob=0.4706
+Sample 16: True=0.0, Pred=0, Prob=0.2026
+Sample 17: True=0.0, Pred=1, Prob=0.4972
+Sample 12: True=0.0, Pred=0, Prob=0.1529
+Sample 3: True=0.0, Pred=0, Prob=0.1822
+Sample 10: True=0.0, Pred=0, Prob=0.3672
+Sample 14: True=0.0, Pred=0, Prob=0.2004
+Sample 15: True=0.0, Pred=1, Prob=0.6107
+Sample 173: True=0.0, Pred=0, Prob=0.3123
+Sample 148: True=0.0, Pred=0, Prob=0.1585
+Sample 170: True=0.0, Pred=0, Prob=0.4114
+Sample 153: True=0.0, Pred=0, Prob=0.3598
+Sample 159: True=0.0, Pred=0, Prob=0.4115
+Sample 165: True=0.0, Pred=0, Prob=0.2340
+Sample 164: True=0.0, Pred=0, Prob=0.1478
+Sample 156: True=0.0, Pred=0, Prob=0.1871
+Sample 169: True=0.0, Pred=0, Prob=0.1941
+Sample 168: True=0.0, Pred=0, Prob=0.3484
+Sample 154: True=0.0, Pred=0, Prob=0.2947
+Sample 160: True=0.0, Pred=0, Prob=0.3593
+Sample 172: True=0.0, Pred=0, Prob=0.1935
+Sample 23: True=0.0, Pred=1, Prob=0.5907
+Sample 157: True=0.0, Pred=0, Prob=0.3458
+Sample 167: True=0.0, Pred=0, Prob=0.2695
+Sample 161: True=0.0, Pred=0, Prob=0.1585
+Sample 152: True=0.0, Pred=0, Prob=0.3315
+Sample 264: True=0.0, Pred=0, Prob=0.4143
+Sample 274: True=0.0, Pred=0, Prob=0.0459
+Sample 182: True=0.0, Pred=1, Prob=0.7481
+Sample 260: True=0.0, Pred=0, Prob=0.4089
+Sample 178: True=0.0, Pred=1, Prob=0.6911
+Sample 186: True=0.0, Pred=1, Prob=0.4966
+Sample 276: True=0.0, Pred=0, Prob=0.0272
+Sample 273: True=0.0, Pred=0, Prob=0.1326
+Sample 177: True=0.0, Pred=1, Prob=0.5315
+Sample 266: True=0.0, Pred=0, Prob=0.2810
+Sample 180: True=0.0, Pred=1, Prob=0.5829
+Sample 183: True=0.0, Pred=0, Prob=0.3189
+Sample 262: True=0.0, Pred=0, Prob=0.0803
+Sample 281: True=0.0, Pred=0, Prob=0.1672
+Sample 309: True=0.0, Pred=0, Prob=0.2883
+Sample 316: True=0.0, Pred=0, Prob=0.3896
+Sample 298: True=0.0, Pred=0, Prob=0.1272
+Sample 307: True=0.0, Pred=0, Prob=0.2511
+Sample 302: True=0.0, Pred=0, Prob=0.4780
+Sample 299: True=0.0, Pred=0, Prob=0.4529
+Sample 291: True=0.0, Pred=1, Prob=0.4957
+Sample 296: True=0.0, Pred=1, Prob=0.6337
+Sample 310: True=0.0, Pred=1, Prob=0.4825
+Sample 277: True=0.0, Pred=1, Prob=0.5367
+Sample 283: True=0.0, Pred=0, Prob=0.2769
+Sample 308: True=0.0, Pred=0, Prob=0.0581
+Sample 289: True=0.0, Pred=0, Prob=0.2937
+Sample 315: True=0.0, Pred=0, Prob=0.1746
+Sample 285: True=0.0, Pred=1, Prob=0.5773
+Sample 312: True=0.0, Pred=0, Prob=0.2913
+Sample 286: True=0.0, Pred=1, Prob=0.7519
+Sample 278: True=0.0, Pred=0, Prob=0.3687
+Sample 292: True=0.0, Pred=0, Prob=0.4027
+Sample 162: True=0.0, Pred=0, Prob=0.1965
+Sample 300: True=0.0, Pred=1, Prob=0.5196
+Sample 265: True=0.0, Pred=1, Prob=0.4803
+Sample 261: True=0.0, Pred=0, Prob=0.2728
+Sample 151: True=0.0, Pred=0, Prob=0.4091
+Sample 259: True=0.0, Pred=0, Prob=0.0448
+Sample 268: True=0.0, Pred=0, Prob=0.2112
+Sample 267: True=0.0, Pred=0, Prob=0.3280
+Sample 257: True=0.0, Pred=1, Prob=0.5806
+Sample 280: True=0.0, Pred=0, Prob=0.4760
+Sample 263: True=0.0, Pred=1, Prob=0.4973
+Sample 158: True=0.0, Pred=0, Prob=0.4171
+Sample 270: True=0.0, Pred=0, Prob=0.3278
