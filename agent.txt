@@ -1,0 +1,69 @@
+Project summary
+This repository implements a TF-IDF based end-to-end pipeline for Alzheimer's Disease speech-text analysis. The pipeline includes preprocessing, subject-level classification, sliding-window importance scoring, token attribution, stability diagnostics, and visualization. The design is inspired by token-importance analysis, but the current classifier is a classical TF-IDF + Logistic Regression model rather than an LLM.
+
+Repository files
+- main_pipeline.py: orchestrates the full pipeline
+- config.py: shared parameters, runtime seed control, and pure path builders (no mkdir side effects)
+- preprocess_data.py: preprocesses raw CSV files and creates processed datasets
+- train_classifier.py: trains and evaluates the baseline classifier
+- window_extraction.py: computes sliding-window deletion importance per dataset
+- token_aggregation.py: runs token-level attribution inside selected windows and aggregates token statistics
+- attribution_methods.py: attribution utilities
+- debug_stability.py: computes top-K overlap across seeds
+- visualization.py: produces figures from prior stage outputs
+
+Current model and method
+- Classifier: TF-IDF + Logistic Regression
+- Development data: preprocess_data/test.csv
+- External evaluation data: preprocess_data/ad.csv + preprocess_data/control.csv
+- Window analysis: fixed window length 4, stride 2
+- Token attribution: leave-one-out deletion inside selected windows
+- Stability: compares overlap of top windows across seeds
+
+Input files expected under data_Test AD
+- ad_s2t_wav2vec.csv
+- control_s2t_wav2vec.csv
+- test_s2t_wav2vec.csv
+
+Actual output layout
+Each script writes to its own folder. Do not describe the old flat output layout.
+- data_Test AD/preprocess_data/csv/
+- data_Test AD/train_classifier/model/
+- data_Test AD/train_classifier/predictions/
+- data_Test AD/train_classifier/logs/
+- data_Test AD/window_extraction/<dataset>/csv/
+- data_Test AD/window_extraction/<dataset>/logs/
+- data_Test AD/token_aggregation/<dataset>/csv/
+- data_Test AD/debug_stability/<dataset>/csv/
+- data_Test AD/visualization/<dataset>/figures/
+- data_Test AD/main_pipeline/logs/
+where <dataset> is test, ad, or control.
+
+Lazy directory policy
+- config.py must not create directories at import time.
+- Scripts must create only directories they actually write to.
+- Do not template-create csv/figures/logs/model/metrics/predictions for every script or dataset.
+
+Important behavior details
+- preprocess_data.py extracts sample_id from file path when possible and removes the original file column
+- train_classifier.py uses a fixed in-code FINAL_CONFIG; it does not load final_config.json in the current version
+- main_pipeline.py preprocesses once, trains the classifier once, then runs downstream analysis for each seed and each dataset
+- seed-specific downstream outputs are saved with suffixes such as _seed123.csv, and seed-specific figures are saved in figures/seed_123/
+- visualization.py expects outputs from window_extraction, token_aggregation, and debug_stability
+
+How to run
+- full pipeline: python main_pipeline.py
+- single seed: python main_pipeline.py --seed 123
+- multiple seeds: python main_pipeline.py --seeds 7,42,123
+- selected datasets: python main_pipeline.py --seed 123 --datasets test,ad
+
+How to set seed at runtime
+- Preferred: pass --seed or --seeds to main_pipeline.py
+- Individual scripts can also use environment variables RANDOM_SEED and ROBUSTNESS_SEEDS
+- If no runtime override is given, config.py defaults are used
+
+Documentation constraints
+- Do not claim hyperparameter tuning is required unless the code actually performs it
+- Do not mention final_config.json unless explaining that the current code no longer depends on it
+- Do not describe obsolete files such as token_attribution_top5.csv or debugging_window_stability.csv as current outputs
+- Keep documentation aligned with the real py files, not with older plans
