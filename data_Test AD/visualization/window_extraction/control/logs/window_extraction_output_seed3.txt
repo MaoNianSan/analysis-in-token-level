@@ -1,0 +1,33 @@
+================================================================================
+Window Sliding Analysis | dataset=control | seed=3
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\control.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\control\csv\window_importance_seed3.csv (4760 windows)
+- data_Test AD\window_extraction\control\logs\window_extraction_output_seed3.txt
+
+Top 10 windows across all samples:
+Seed 3 | Dataset control | Sample 17: 'THAT YOU SEE GOING' | delta=0.1757, abs_delta=0.1757, direction=AD_support
+Seed 3 | Dataset control | Sample 21: 'EVERYTHING YOU SEE GOING' | delta=0.1673, abs_delta=0.1673, direction=AD_support
+Seed 3 | Dataset control | Sample 286: 'YOU SEE GOING ON' | delta=0.1619, abs_delta=0.1619, direction=AD_support
+Seed 3 | Dataset control | Sample 159: 'THAT YOU SEE GOING' | delta=0.1586, abs_delta=0.1586, direction=AD_support
+Seed 3 | Dataset control | Sample 180: 'ME EVERYTHING YOU SEE' | delta=0.1489, abs_delta=0.1489, direction=AD_support
+Seed 3 | Dataset control | Sample 316: 'NIGHT YOU SEE GOING' | delta=0.1440, abs_delta=0.1440, direction=AD_support
+Seed 3 | Dataset control | Sample 159: 'SEE GOING ON IN' | delta=0.1439, abs_delta=0.1439, direction=AD_support
+Seed 3 | Dataset control | Sample 17: 'ME EVERYTHING THAT YOU' | delta=0.1390, abs_delta=0.1390, direction=AD_support
+Seed 3 | Dataset control | Sample 23: 'EVERYTHING YOU SEE GOING' | delta=0.1375, abs_delta=0.1375, direction=AD_support
+Seed 3 | Dataset control | Sample 17: 'SEE GOING ON IN' | delta=0.1374, abs_delta=0.1374, direction=AD_support
+
+================================================================================

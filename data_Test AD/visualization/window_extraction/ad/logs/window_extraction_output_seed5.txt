@@ -1,0 +1,34 @@
+================================================================================
+Window Sliding Analysis | dataset=ad | seed=5
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\ad.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+Processed 80 samples...
+
+Saved files:
+- data_Test AD\window_extraction\ad\csv\window_importance_seed5.csv (4323 windows)
+- data_Test AD\window_extraction\ad\logs\window_extraction_output_seed5.txt
+
+Top 10 windows across all samples:
+Seed 5 | Dataset ad | Sample 110: 'EVERYTHING YOU SEE GOING' | delta=0.1876, abs_delta=0.1876, direction=AD_support
+Seed 5 | Dataset ad | Sample 72: 'YOU SEE GOING ON' | delta=0.1682, abs_delta=0.1682, direction=AD_support
+Seed 5 | Dataset ad | Sample 236: 'THAT YOU SEE GOING' | delta=0.1649, abs_delta=0.1649, direction=AD_support
+Seed 5 | Dataset ad | Sample 218: 'YOU SEE GOING ON' | delta=0.1594, abs_delta=0.1594, direction=AD_support
+Seed 5 | Dataset ad | Sample 187: 'YOU SEE GOING ON' | delta=0.1579, abs_delta=0.1579, direction=AD_support
+Seed 5 | Dataset ad | Sample 31: 'WOULD YOU SEE GOING' | delta=0.1560, abs_delta=0.1560, direction=AD_support
+Seed 5 | Dataset ad | Sample 72: 'ME EVERYTHING YOU SEE' | delta=0.1556, abs_delta=0.1556, direction=AD_support
+Seed 5 | Dataset ad | Sample 245: 'DO YOU SEE GOING' | delta=0.1552, abs_delta=0.1552, direction=AD_support
+Seed 5 | Dataset ad | Sample 142: 'YOU SEE GOING ON' | delta=0.1525, abs_delta=0.1525, direction=AD_support
+Seed 5 | Dataset ad | Sample 123: 'YOU SEE GOING ON' | delta=0.1448, abs_delta=0.1448, direction=AD_support
+
+================================================================================
