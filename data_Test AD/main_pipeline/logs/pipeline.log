@@ -1,0 +1,955 @@
+2026-04-17 19:14:46,256 - INFO - Pipeline start
+2026-04-17 19:14:46,256 - INFO - Seeds: [1, 2, 3, 4, 5]
+2026-04-17 19:14:46,256 - INFO - Datasets: ['test', 'ad', 'control']
+2026-04-17 19:14:46,256 - INFO - Starting stage: Preprocess
+2026-04-17 19:14:46,803 - INFO - Processed ad_s2t_wav2vec.csv -> data_Test AD\preprocess_data\csv\ad.csv
+Processed control_s2t_wav2vec.csv -> data_Test AD\preprocess_data\csv\control.csv
+Processed test_s2t_wav2vec.csv -> data_Test AD\preprocess_data\csv\test.csv
+Combined processed data -> data_Test AD\preprocess_data\csv\combined_processed_data.csv
+
+2026-04-17 19:14:46,803 - INFO - Stage: Classifier | seed=1 | dataset=None
+2026-04-17 19:14:51,117 - INFO - 
+Saved files:
+- data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+- data_Test AD\train_classifier\model\logistic_regression_model.joblib
+- data_Test AD\train_classifier\predictions\classification_results.csv (external test results)
+- data_Test AD\train_classifier\predictions\classification_results_development_debug.csv (development debug results)
+- data_Test AD\train_classifier\logs\train_classifier_output.txt
+
+2026-04-17 19:14:51,117 - INFO - ============================================================
+2026-04-17 19:14:51,117 - INFO - Seed=1 | Dataset=test
+2026-04-17 19:14:51,117 - INFO - ============================================================
+2026-04-17 19:14:51,118 - INFO - Stage: Window extraction | seed=1 | dataset=test
+2026-04-17 19:15:01,294 - INFO - ================================================================================
+Window Sliding Analysis | dataset=test | seed=1
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\test.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\test\csv\window_importance_seed1.csv (3661 windows)
+- data_Test AD\window_extraction\test\logs\window_extraction_output_seed1.txt
+
+Top 10 windows across all samples:
+Seed 1 | Dataset test | Sample 33: 'NOVE EBUT HE'S FALLEN' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 1 | Dataset test | Sample 34: 'EVERYTHING YOU SEE ON' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 1 | Dataset test | Sample 61: 'THAT HE SEE GOING' | delta=0.0948, abs_delta=0.0948, direction=AD_support
+Seed 1 | Dataset test | Sample 62: 'YOU SEE GOING ON' | delta=0.0939, abs_delta=0.0939, direction=AD_support
+Seed 1 | Dataset test | Sample 25: 'YOU SEE GOING ON' | delta=0.0837, abs_delta=0.0837, direction=AD_support
+Seed 1 | Dataset test | Sample 34: 'TO SELME EVERYTHING YOU' | delta=0.0831, abs_delta=0.0831, direction=AD_support
+Seed 1 | Dataset test | Sample 14: 'EVERYTHING YOU SEE HAPPENING' | delta=0.0816, abs_delta=0.0816, direction=AD_support
+Seed 1 | Dataset test | Sample 62: 'EVERYTHING THAT YOU SEE' | delta=0.0806, abs_delta=0.0806, direction=AD_support
+Seed 1 | Dataset test | Sample 16: 'KILLED IF HE LET'S' | delta=0.0789, abs_delta=0.0789, direction=AD_support
+Seed 1 | Dataset test | Sample 61: 'SEE GOING ON WIT' | delta=0.0788, abs_delta=0.0788, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:15:01,295 - INFO - Stage: Token aggregation | seed=1 | dataset=test
+2026-04-17 19:15:03,562 - INFO - ================================================================================
+Token Analysis | dataset=test | seed=1
+================================================================================
+Loaded windows: data_Test AD\window_extraction\test\csv\window_importance_seed1.csv
+Selected candidate windows: 349
+Saved: data_Test AD\token_aggregation\test\csv\candidate_windows_selected_seed1.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed1.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed1.csv
+
+2026-04-17 19:15:03,562 - INFO - Stage: Stability diagnostics | seed=1 | dataset=test
+2026-04-17 19:15:14,786 - INFO - ================================================================================
+Stability | dataset=test
+================================================================================
+Saved: data_Test AD\debug_stability\test\csv\stability_summary_seed1.csv
+
+2026-04-17 19:15:14,786 - INFO - Stage: Visualization | seed=1 | dataset=test
+2026-04-17 19:15:21,065 - INFO - Loaded window_df: data_Test AD\window_extraction\test\csv\window_importance_seed1.csv
+Loaded token_df: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed1.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed1.csv
+Loaded stability_df: data_Test AD\debug_stability\test\csv\stability_summary_seed1.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\test\figures\seed_1
+
+2026-04-17 19:15:21,065 - INFO - ============================================================
+2026-04-17 19:15:21,065 - INFO - Seed=1 | Dataset=ad
+2026-04-17 19:15:21,065 - INFO - ============================================================
+2026-04-17 19:15:21,065 - INFO - Stage: Window extraction | seed=1 | dataset=ad
+2026-04-17 19:15:34,675 - INFO - ================================================================================
+Window Sliding Analysis | dataset=ad | seed=1
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\ad.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+Processed 80 samples...
+
+Saved files:
+- data_Test AD\window_extraction\ad\csv\window_importance_seed1.csv (4323 windows)
+- data_Test AD\window_extraction\ad\logs\window_extraction_output_seed1.txt
+
+Top 10 windows across all samples:
+Seed 1 | Dataset ad | Sample 110: 'EVERYTHING YOU SEE GOING' | delta=0.1876, abs_delta=0.1876, direction=AD_support
+Seed 1 | Dataset ad | Sample 72: 'YOU SEE GOING ON' | delta=0.1682, abs_delta=0.1682, direction=AD_support
+Seed 1 | Dataset ad | Sample 236: 'THAT YOU SEE GOING' | delta=0.1649, abs_delta=0.1649, direction=AD_support
+Seed 1 | Dataset ad | Sample 218: 'YOU SEE GOING ON' | delta=0.1594, abs_delta=0.1594, direction=AD_support
+Seed 1 | Dataset ad | Sample 187: 'YOU SEE GOING ON' | delta=0.1579, abs_delta=0.1579, direction=AD_support
+Seed 1 | Dataset ad | Sample 31: 'WOULD YOU SEE GOING' | delta=0.1560, abs_delta=0.1560, direction=AD_support
+Seed 1 | Dataset ad | Sample 72: 'ME EVERYTHING YOU SEE' | delta=0.1556, abs_delta=0.1556, direction=AD_support
+Seed 1 | Dataset ad | Sample 245: 'DO YOU SEE GOING' | delta=0.1552, abs_delta=0.1552, direction=AD_support
+Seed 1 | Dataset ad | Sample 142: 'YOU SEE GOING ON' | delta=0.1525, abs_delta=0.1525, direction=AD_support
+Seed 1 | Dataset ad | Sample 123: 'YOU SEE GOING ON' | delta=0.1448, abs_delta=0.1448, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:15:34,675 - INFO - Stage: Token aggregation | seed=1 | dataset=ad
+2026-04-17 19:15:37,292 - INFO - ================================================================================
+Token Analysis | dataset=ad | seed=1
+================================================================================
+Loaded windows: data_Test AD\window_extraction\ad\csv\window_importance_seed1.csv
+Selected candidate windows: 517
+Saved: data_Test AD\token_aggregation\ad\csv\candidate_windows_selected_seed1.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed1.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed1.csv
+
+2026-04-17 19:15:37,292 - INFO - Stage: Stability diagnostics | seed=1 | dataset=ad
+2026-04-17 19:15:51,203 - INFO - ================================================================================
+Stability | dataset=ad
+================================================================================
+Saved: data_Test AD\debug_stability\ad\csv\stability_summary_seed1.csv
+
+2026-04-17 19:15:51,203 - INFO - Stage: Visualization | seed=1 | dataset=ad
+2026-04-17 19:15:57,370 - INFO - Loaded window_df: data_Test AD\window_extraction\ad\csv\window_importance_seed1.csv
+Loaded token_df: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed1.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed1.csv
+Loaded stability_df: data_Test AD\debug_stability\ad\csv\stability_summary_seed1.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\ad\figures\seed_1
+
+2026-04-17 19:15:57,371 - INFO - ============================================================
+2026-04-17 19:15:57,371 - INFO - Seed=1 | Dataset=control
+2026-04-17 19:15:57,371 - INFO - ============================================================
+2026-04-17 19:15:57,371 - INFO - Stage: Window extraction | seed=1 | dataset=control
+2026-04-17 19:16:11,497 - INFO - ================================================================================
+Window Sliding Analysis | dataset=control | seed=1
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\control.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\control\csv\window_importance_seed1.csv (4760 windows)
+- data_Test AD\window_extraction\control\logs\window_extraction_output_seed1.txt
+
+Top 10 windows across all samples:
+Seed 1 | Dataset control | Sample 17: 'THAT YOU SEE GOING' | delta=0.1757, abs_delta=0.1757, direction=AD_support
+Seed 1 | Dataset control | Sample 21: 'EVERYTHING YOU SEE GOING' | delta=0.1673, abs_delta=0.1673, direction=AD_support
+Seed 1 | Dataset control | Sample 286: 'YOU SEE GOING ON' | delta=0.1619, abs_delta=0.1619, direction=AD_support
+Seed 1 | Dataset control | Sample 159: 'THAT YOU SEE GOING' | delta=0.1586, abs_delta=0.1586, direction=AD_support
+Seed 1 | Dataset control | Sample 180: 'ME EVERYTHING YOU SEE' | delta=0.1489, abs_delta=0.1489, direction=AD_support
+Seed 1 | Dataset control | Sample 316: 'NIGHT YOU SEE GOING' | delta=0.1440, abs_delta=0.1440, direction=AD_support
+Seed 1 | Dataset control | Sample 159: 'SEE GOING ON IN' | delta=0.1439, abs_delta=0.1439, direction=AD_support
+Seed 1 | Dataset control | Sample 17: 'ME EVERYTHING THAT YOU' | delta=0.1390, abs_delta=0.1390, direction=AD_support
+Seed 1 | Dataset control | Sample 23: 'EVERYTHING YOU SEE GOING' | delta=0.1375, abs_delta=0.1375, direction=AD_support
+Seed 1 | Dataset control | Sample 17: 'SEE GOING ON IN' | delta=0.1374, abs_delta=0.1374, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:16:11,497 - INFO - Stage: Token aggregation | seed=1 | dataset=control
+2026-04-17 19:16:14,054 - INFO - ================================================================================
+Token Analysis | dataset=control | seed=1
+================================================================================
+Loaded windows: data_Test AD\window_extraction\control\csv\window_importance_seed1.csv
+Selected candidate windows: 541
+Saved: data_Test AD\token_aggregation\control\csv\candidate_windows_selected_seed1.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed1.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed1.csv
+
+2026-04-17 19:16:14,054 - INFO - Stage: Stability diagnostics | seed=1 | dataset=control
+2026-04-17 19:16:29,187 - INFO - ================================================================================
+Stability | dataset=control
+================================================================================
+Saved: data_Test AD\debug_stability\control\csv\stability_summary_seed1.csv
+
+2026-04-17 19:16:29,187 - INFO - Stage: Visualization | seed=1 | dataset=control
+2026-04-17 19:16:35,208 - INFO - Loaded window_df: data_Test AD\window_extraction\control\csv\window_importance_seed1.csv
+Loaded token_df: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed1.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed1.csv
+Loaded stability_df: data_Test AD\debug_stability\control\csv\stability_summary_seed1.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\control\figures\seed_1
+
+2026-04-17 19:16:35,208 - INFO - ============================================================
+2026-04-17 19:16:35,208 - INFO - Seed=2 | Dataset=test
+2026-04-17 19:16:35,208 - INFO - ============================================================
+2026-04-17 19:16:35,208 - INFO - Stage: Window extraction | seed=2 | dataset=test
+2026-04-17 19:16:46,153 - INFO - ================================================================================
+Window Sliding Analysis | dataset=test | seed=2
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\test.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\test\csv\window_importance_seed2.csv (3661 windows)
+- data_Test AD\window_extraction\test\logs\window_extraction_output_seed2.txt
+
+Top 10 windows across all samples:
+Seed 2 | Dataset test | Sample 33: 'NOVE EBUT HE'S FALLEN' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 2 | Dataset test | Sample 34: 'EVERYTHING YOU SEE ON' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 2 | Dataset test | Sample 61: 'THAT HE SEE GOING' | delta=0.0948, abs_delta=0.0948, direction=AD_support
+Seed 2 | Dataset test | Sample 62: 'YOU SEE GOING ON' | delta=0.0939, abs_delta=0.0939, direction=AD_support
+Seed 2 | Dataset test | Sample 25: 'YOU SEE GOING ON' | delta=0.0837, abs_delta=0.0837, direction=AD_support
+Seed 2 | Dataset test | Sample 34: 'TO SELME EVERYTHING YOU' | delta=0.0831, abs_delta=0.0831, direction=AD_support
+Seed 2 | Dataset test | Sample 14: 'EVERYTHING YOU SEE HAPPENING' | delta=0.0816, abs_delta=0.0816, direction=AD_support
+Seed 2 | Dataset test | Sample 62: 'EVERYTHING THAT YOU SEE' | delta=0.0806, abs_delta=0.0806, direction=AD_support
+Seed 2 | Dataset test | Sample 16: 'KILLED IF HE LET'S' | delta=0.0789, abs_delta=0.0789, direction=AD_support
+Seed 2 | Dataset test | Sample 61: 'SEE GOING ON WIT' | delta=0.0788, abs_delta=0.0788, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:16:46,154 - INFO - Stage: Token aggregation | seed=2 | dataset=test
+2026-04-17 19:16:48,444 - INFO - ================================================================================
+Token Analysis | dataset=test | seed=2
+================================================================================
+Loaded windows: data_Test AD\window_extraction\test\csv\window_importance_seed2.csv
+Selected candidate windows: 349
+Saved: data_Test AD\token_aggregation\test\csv\candidate_windows_selected_seed2.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed2.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed2.csv
+
+2026-04-17 19:16:48,444 - INFO - Stage: Stability diagnostics | seed=2 | dataset=test
+2026-04-17 19:16:59,520 - INFO - ================================================================================
+Stability | dataset=test
+================================================================================
+Saved: data_Test AD\debug_stability\test\csv\stability_summary_seed2.csv
+
+2026-04-17 19:16:59,521 - INFO - Stage: Visualization | seed=2 | dataset=test
+2026-04-17 19:17:05,538 - INFO - Loaded window_df: data_Test AD\window_extraction\test\csv\window_importance_seed2.csv
+Loaded token_df: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed2.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed2.csv
+Loaded stability_df: data_Test AD\debug_stability\test\csv\stability_summary_seed2.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\test\figures\seed_2
+
+2026-04-17 19:17:05,538 - INFO - ============================================================
+2026-04-17 19:17:05,539 - INFO - Seed=2 | Dataset=ad
+2026-04-17 19:17:05,539 - INFO - ============================================================
+2026-04-17 19:17:05,539 - INFO - Stage: Window extraction | seed=2 | dataset=ad
+2026-04-17 19:17:18,135 - INFO - ================================================================================
+Window Sliding Analysis | dataset=ad | seed=2
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\ad.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+Processed 80 samples...
+
+Saved files:
+- data_Test AD\window_extraction\ad\csv\window_importance_seed2.csv (4323 windows)
+- data_Test AD\window_extraction\ad\logs\window_extraction_output_seed2.txt
+
+Top 10 windows across all samples:
+Seed 2 | Dataset ad | Sample 110: 'EVERYTHING YOU SEE GOING' | delta=0.1876, abs_delta=0.1876, direction=AD_support
+Seed 2 | Dataset ad | Sample 72: 'YOU SEE GOING ON' | delta=0.1682, abs_delta=0.1682, direction=AD_support
+Seed 2 | Dataset ad | Sample 236: 'THAT YOU SEE GOING' | delta=0.1649, abs_delta=0.1649, direction=AD_support
+Seed 2 | Dataset ad | Sample 218: 'YOU SEE GOING ON' | delta=0.1594, abs_delta=0.1594, direction=AD_support
+Seed 2 | Dataset ad | Sample 187: 'YOU SEE GOING ON' | delta=0.1579, abs_delta=0.1579, direction=AD_support
+Seed 2 | Dataset ad | Sample 31: 'WOULD YOU SEE GOING' | delta=0.1560, abs_delta=0.1560, direction=AD_support
+Seed 2 | Dataset ad | Sample 72: 'ME EVERYTHING YOU SEE' | delta=0.1556, abs_delta=0.1556, direction=AD_support
+Seed 2 | Dataset ad | Sample 245: 'DO YOU SEE GOING' | delta=0.1552, abs_delta=0.1552, direction=AD_support
+Seed 2 | Dataset ad | Sample 142: 'YOU SEE GOING ON' | delta=0.1525, abs_delta=0.1525, direction=AD_support
+Seed 2 | Dataset ad | Sample 123: 'YOU SEE GOING ON' | delta=0.1448, abs_delta=0.1448, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:17:18,136 - INFO - Stage: Token aggregation | seed=2 | dataset=ad
+2026-04-17 19:17:20,694 - INFO - ================================================================================
+Token Analysis | dataset=ad | seed=2
+================================================================================
+Loaded windows: data_Test AD\window_extraction\ad\csv\window_importance_seed2.csv
+Selected candidate windows: 517
+Saved: data_Test AD\token_aggregation\ad\csv\candidate_windows_selected_seed2.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed2.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed2.csv
+
+2026-04-17 19:17:20,694 - INFO - Stage: Stability diagnostics | seed=2 | dataset=ad
+2026-04-17 19:17:34,030 - INFO - ================================================================================
+Stability | dataset=ad
+================================================================================
+Saved: data_Test AD\debug_stability\ad\csv\stability_summary_seed2.csv
+
+2026-04-17 19:17:34,030 - INFO - Stage: Visualization | seed=2 | dataset=ad
+2026-04-17 19:17:40,352 - INFO - Loaded window_df: data_Test AD\window_extraction\ad\csv\window_importance_seed2.csv
+Loaded token_df: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed2.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed2.csv
+Loaded stability_df: data_Test AD\debug_stability\ad\csv\stability_summary_seed2.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\ad\figures\seed_2
+
+2026-04-17 19:17:40,352 - INFO - ============================================================
+2026-04-17 19:17:40,353 - INFO - Seed=2 | Dataset=control
+2026-04-17 19:17:40,353 - INFO - ============================================================
+2026-04-17 19:17:40,353 - INFO - Stage: Window extraction | seed=2 | dataset=control
+2026-04-17 19:17:54,486 - INFO - ================================================================================
+Window Sliding Analysis | dataset=control | seed=2
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\control.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\control\csv\window_importance_seed2.csv (4760 windows)
+- data_Test AD\window_extraction\control\logs\window_extraction_output_seed2.txt
+
+Top 10 windows across all samples:
+Seed 2 | Dataset control | Sample 17: 'THAT YOU SEE GOING' | delta=0.1757, abs_delta=0.1757, direction=AD_support
+Seed 2 | Dataset control | Sample 21: 'EVERYTHING YOU SEE GOING' | delta=0.1673, abs_delta=0.1673, direction=AD_support
+Seed 2 | Dataset control | Sample 286: 'YOU SEE GOING ON' | delta=0.1619, abs_delta=0.1619, direction=AD_support
+Seed 2 | Dataset control | Sample 159: 'THAT YOU SEE GOING' | delta=0.1586, abs_delta=0.1586, direction=AD_support
+Seed 2 | Dataset control | Sample 180: 'ME EVERYTHING YOU SEE' | delta=0.1489, abs_delta=0.1489, direction=AD_support
+Seed 2 | Dataset control | Sample 316: 'NIGHT YOU SEE GOING' | delta=0.1440, abs_delta=0.1440, direction=AD_support
+Seed 2 | Dataset control | Sample 159: 'SEE GOING ON IN' | delta=0.1439, abs_delta=0.1439, direction=AD_support
+Seed 2 | Dataset control | Sample 17: 'ME EVERYTHING THAT YOU' | delta=0.1390, abs_delta=0.1390, direction=AD_support
+Seed 2 | Dataset control | Sample 23: 'EVERYTHING YOU SEE GOING' | delta=0.1375, abs_delta=0.1375, direction=AD_support
+Seed 2 | Dataset control | Sample 17: 'SEE GOING ON IN' | delta=0.1374, abs_delta=0.1374, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:17:54,486 - INFO - Stage: Token aggregation | seed=2 | dataset=control
+2026-04-17 19:17:56,910 - INFO - ================================================================================
+Token Analysis | dataset=control | seed=2
+================================================================================
+Loaded windows: data_Test AD\window_extraction\control\csv\window_importance_seed2.csv
+Selected candidate windows: 541
+Saved: data_Test AD\token_aggregation\control\csv\candidate_windows_selected_seed2.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed2.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed2.csv
+
+2026-04-17 19:17:56,911 - INFO - Stage: Stability diagnostics | seed=2 | dataset=control
+2026-04-17 19:18:12,076 - INFO - ================================================================================
+Stability | dataset=control
+================================================================================
+Saved: data_Test AD\debug_stability\control\csv\stability_summary_seed2.csv
+
+2026-04-17 19:18:12,077 - INFO - Stage: Visualization | seed=2 | dataset=control
+2026-04-17 19:18:18,602 - INFO - Loaded window_df: data_Test AD\window_extraction\control\csv\window_importance_seed2.csv
+Loaded token_df: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed2.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed2.csv
+Loaded stability_df: data_Test AD\debug_stability\control\csv\stability_summary_seed2.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\control\figures\seed_2
+
+2026-04-17 19:18:18,603 - INFO - ============================================================
+2026-04-17 19:18:18,603 - INFO - Seed=3 | Dataset=test
+2026-04-17 19:18:18,603 - INFO - ============================================================
+2026-04-17 19:18:18,604 - INFO - Stage: Window extraction | seed=3 | dataset=test
+2026-04-17 19:18:30,761 - INFO - ================================================================================
+Window Sliding Analysis | dataset=test | seed=3
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\test.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\test\csv\window_importance_seed3.csv (3661 windows)
+- data_Test AD\window_extraction\test\logs\window_extraction_output_seed3.txt
+
+Top 10 windows across all samples:
+Seed 3 | Dataset test | Sample 33: 'NOVE EBUT HE'S FALLEN' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 3 | Dataset test | Sample 34: 'EVERYTHING YOU SEE ON' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 3 | Dataset test | Sample 61: 'THAT HE SEE GOING' | delta=0.0948, abs_delta=0.0948, direction=AD_support
+Seed 3 | Dataset test | Sample 62: 'YOU SEE GOING ON' | delta=0.0939, abs_delta=0.0939, direction=AD_support
+Seed 3 | Dataset test | Sample 25: 'YOU SEE GOING ON' | delta=0.0837, abs_delta=0.0837, direction=AD_support
+Seed 3 | Dataset test | Sample 34: 'TO SELME EVERYTHING YOU' | delta=0.0831, abs_delta=0.0831, direction=AD_support
+Seed 3 | Dataset test | Sample 14: 'EVERYTHING YOU SEE HAPPENING' | delta=0.0816, abs_delta=0.0816, direction=AD_support
+Seed 3 | Dataset test | Sample 62: 'EVERYTHING THAT YOU SEE' | delta=0.0806, abs_delta=0.0806, direction=AD_support
+Seed 3 | Dataset test | Sample 16: 'KILLED IF HE LET'S' | delta=0.0789, abs_delta=0.0789, direction=AD_support
+Seed 3 | Dataset test | Sample 61: 'SEE GOING ON WIT' | delta=0.0788, abs_delta=0.0788, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:18:30,761 - INFO - Stage: Token aggregation | seed=3 | dataset=test
+2026-04-17 19:18:33,132 - INFO - ================================================================================
+Token Analysis | dataset=test | seed=3
+================================================================================
+Loaded windows: data_Test AD\window_extraction\test\csv\window_importance_seed3.csv
+Selected candidate windows: 349
+Saved: data_Test AD\token_aggregation\test\csv\candidate_windows_selected_seed3.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed3.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed3.csv
+
+2026-04-17 19:18:33,132 - INFO - Stage: Stability diagnostics | seed=3 | dataset=test
+2026-04-17 19:18:45,698 - INFO - ================================================================================
+Stability | dataset=test
+================================================================================
+Saved: data_Test AD\debug_stability\test\csv\stability_summary_seed3.csv
+
+2026-04-17 19:18:45,698 - INFO - Stage: Visualization | seed=3 | dataset=test
+2026-04-17 19:18:52,989 - INFO - Loaded window_df: data_Test AD\window_extraction\test\csv\window_importance_seed3.csv
+Loaded token_df: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed3.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed3.csv
+Loaded stability_df: data_Test AD\debug_stability\test\csv\stability_summary_seed3.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\test\figures\seed_3
+
+2026-04-17 19:18:52,989 - INFO - ============================================================
+2026-04-17 19:18:52,989 - INFO - Seed=3 | Dataset=ad
+2026-04-17 19:18:52,989 - INFO - ============================================================
+2026-04-17 19:18:52,989 - INFO - Stage: Window extraction | seed=3 | dataset=ad
+2026-04-17 19:19:07,595 - INFO - ================================================================================
+Window Sliding Analysis | dataset=ad | seed=3
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\ad.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+Processed 80 samples...
+
+Saved files:
+- data_Test AD\window_extraction\ad\csv\window_importance_seed3.csv (4323 windows)
+- data_Test AD\window_extraction\ad\logs\window_extraction_output_seed3.txt
+
+Top 10 windows across all samples:
+Seed 3 | Dataset ad | Sample 110: 'EVERYTHING YOU SEE GOING' | delta=0.1876, abs_delta=0.1876, direction=AD_support
+Seed 3 | Dataset ad | Sample 72: 'YOU SEE GOING ON' | delta=0.1682, abs_delta=0.1682, direction=AD_support
+Seed 3 | Dataset ad | Sample 236: 'THAT YOU SEE GOING' | delta=0.1649, abs_delta=0.1649, direction=AD_support
+Seed 3 | Dataset ad | Sample 218: 'YOU SEE GOING ON' | delta=0.1594, abs_delta=0.1594, direction=AD_support
+Seed 3 | Dataset ad | Sample 187: 'YOU SEE GOING ON' | delta=0.1579, abs_delta=0.1579, direction=AD_support
+Seed 3 | Dataset ad | Sample 31: 'WOULD YOU SEE GOING' | delta=0.1560, abs_delta=0.1560, direction=AD_support
+Seed 3 | Dataset ad | Sample 72: 'ME EVERYTHING YOU SEE' | delta=0.1556, abs_delta=0.1556, direction=AD_support
+Seed 3 | Dataset ad | Sample 245: 'DO YOU SEE GOING' | delta=0.1552, abs_delta=0.1552, direction=AD_support
+Seed 3 | Dataset ad | Sample 142: 'YOU SEE GOING ON' | delta=0.1525, abs_delta=0.1525, direction=AD_support
+Seed 3 | Dataset ad | Sample 123: 'YOU SEE GOING ON' | delta=0.1448, abs_delta=0.1448, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:19:07,595 - INFO - Stage: Token aggregation | seed=3 | dataset=ad
+2026-04-17 19:19:10,272 - INFO - ================================================================================
+Token Analysis | dataset=ad | seed=3
+================================================================================
+Loaded windows: data_Test AD\window_extraction\ad\csv\window_importance_seed3.csv
+Selected candidate windows: 517
+Saved: data_Test AD\token_aggregation\ad\csv\candidate_windows_selected_seed3.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed3.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed3.csv
+
+2026-04-17 19:19:10,273 - INFO - Stage: Stability diagnostics | seed=3 | dataset=ad
+2026-04-17 19:19:25,792 - INFO - ================================================================================
+Stability | dataset=ad
+================================================================================
+Saved: data_Test AD\debug_stability\ad\csv\stability_summary_seed3.csv
+
+2026-04-17 19:19:25,793 - INFO - Stage: Visualization | seed=3 | dataset=ad
+2026-04-17 19:19:33,224 - INFO - Loaded window_df: data_Test AD\window_extraction\ad\csv\window_importance_seed3.csv
+Loaded token_df: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed3.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed3.csv
+Loaded stability_df: data_Test AD\debug_stability\ad\csv\stability_summary_seed3.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\ad\figures\seed_3
+
+2026-04-17 19:19:33,224 - INFO - ============================================================
+2026-04-17 19:19:33,224 - INFO - Seed=3 | Dataset=control
+2026-04-17 19:19:33,224 - INFO - ============================================================
+2026-04-17 19:19:33,224 - INFO - Stage: Window extraction | seed=3 | dataset=control
+2026-04-17 19:19:50,001 - INFO - ================================================================================
+Window Sliding Analysis | dataset=control | seed=3
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\control.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\control\csv\window_importance_seed3.csv (4760 windows)
+- data_Test AD\window_extraction\control\logs\window_extraction_output_seed3.txt
+
+Top 10 windows across all samples:
+Seed 3 | Dataset control | Sample 17: 'THAT YOU SEE GOING' | delta=0.1757, abs_delta=0.1757, direction=AD_support
+Seed 3 | Dataset control | Sample 21: 'EVERYTHING YOU SEE GOING' | delta=0.1673, abs_delta=0.1673, direction=AD_support
+Seed 3 | Dataset control | Sample 286: 'YOU SEE GOING ON' | delta=0.1619, abs_delta=0.1619, direction=AD_support
+Seed 3 | Dataset control | Sample 159: 'THAT YOU SEE GOING' | delta=0.1586, abs_delta=0.1586, direction=AD_support
+Seed 3 | Dataset control | Sample 180: 'ME EVERYTHING YOU SEE' | delta=0.1489, abs_delta=0.1489, direction=AD_support
+Seed 3 | Dataset control | Sample 316: 'NIGHT YOU SEE GOING' | delta=0.1440, abs_delta=0.1440, direction=AD_support
+Seed 3 | Dataset control | Sample 159: 'SEE GOING ON IN' | delta=0.1439, abs_delta=0.1439, direction=AD_support
+Seed 3 | Dataset control | Sample 17: 'ME EVERYTHING THAT YOU' | delta=0.1390, abs_delta=0.1390, direction=AD_support
+Seed 3 | Dataset control | Sample 23: 'EVERYTHING YOU SEE GOING' | delta=0.1375, abs_delta=0.1375, direction=AD_support
+Seed 3 | Dataset control | Sample 17: 'SEE GOING ON IN' | delta=0.1374, abs_delta=0.1374, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:19:50,001 - INFO - Stage: Token aggregation | seed=3 | dataset=control
+2026-04-17 19:19:52,646 - INFO - ================================================================================
+Token Analysis | dataset=control | seed=3
+================================================================================
+Loaded windows: data_Test AD\window_extraction\control\csv\window_importance_seed3.csv
+Selected candidate windows: 541
+Saved: data_Test AD\token_aggregation\control\csv\candidate_windows_selected_seed3.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed3.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed3.csv
+
+2026-04-17 19:19:52,646 - INFO - Stage: Stability diagnostics | seed=3 | dataset=control
+2026-04-17 19:20:09,959 - INFO - ================================================================================
+Stability | dataset=control
+================================================================================
+Saved: data_Test AD\debug_stability\control\csv\stability_summary_seed3.csv
+
+2026-04-17 19:20:09,961 - INFO - Stage: Visualization | seed=3 | dataset=control
+2026-04-17 19:20:16,741 - INFO - Loaded window_df: data_Test AD\window_extraction\control\csv\window_importance_seed3.csv
+Loaded token_df: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed3.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed3.csv
+Loaded stability_df: data_Test AD\debug_stability\control\csv\stability_summary_seed3.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\control\figures\seed_3
+
+2026-04-17 19:20:16,741 - INFO - ============================================================
+2026-04-17 19:20:16,741 - INFO - Seed=4 | Dataset=test
+2026-04-17 19:20:16,742 - INFO - ============================================================
+2026-04-17 19:20:16,743 - INFO - Stage: Window extraction | seed=4 | dataset=test
+2026-04-17 19:20:28,904 - INFO - ================================================================================
+Window Sliding Analysis | dataset=test | seed=4
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\test.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\test\csv\window_importance_seed4.csv (3661 windows)
+- data_Test AD\window_extraction\test\logs\window_extraction_output_seed4.txt
+
+Top 10 windows across all samples:
+Seed 4 | Dataset test | Sample 33: 'NOVE EBUT HE'S FALLEN' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 4 | Dataset test | Sample 34: 'EVERYTHING YOU SEE ON' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 4 | Dataset test | Sample 61: 'THAT HE SEE GOING' | delta=0.0948, abs_delta=0.0948, direction=AD_support
+Seed 4 | Dataset test | Sample 62: 'YOU SEE GOING ON' | delta=0.0939, abs_delta=0.0939, direction=AD_support
+Seed 4 | Dataset test | Sample 25: 'YOU SEE GOING ON' | delta=0.0837, abs_delta=0.0837, direction=AD_support
+Seed 4 | Dataset test | Sample 34: 'TO SELME EVERYTHING YOU' | delta=0.0831, abs_delta=0.0831, direction=AD_support
+Seed 4 | Dataset test | Sample 14: 'EVERYTHING YOU SEE HAPPENING' | delta=0.0816, abs_delta=0.0816, direction=AD_support
+Seed 4 | Dataset test | Sample 62: 'EVERYTHING THAT YOU SEE' | delta=0.0806, abs_delta=0.0806, direction=AD_support
+Seed 4 | Dataset test | Sample 16: 'KILLED IF HE LET'S' | delta=0.0789, abs_delta=0.0789, direction=AD_support
+Seed 4 | Dataset test | Sample 61: 'SEE GOING ON WIT' | delta=0.0788, abs_delta=0.0788, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:20:28,904 - INFO - Stage: Token aggregation | seed=4 | dataset=test
+2026-04-17 19:20:31,027 - INFO - ================================================================================
+Token Analysis | dataset=test | seed=4
+================================================================================
+Loaded windows: data_Test AD\window_extraction\test\csv\window_importance_seed4.csv
+Selected candidate windows: 349
+Saved: data_Test AD\token_aggregation\test\csv\candidate_windows_selected_seed4.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed4.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed4.csv
+
+2026-04-17 19:20:31,027 - INFO - Stage: Stability diagnostics | seed=4 | dataset=test
+2026-04-17 19:20:43,138 - INFO - ================================================================================
+Stability | dataset=test
+================================================================================
+Saved: data_Test AD\debug_stability\test\csv\stability_summary_seed4.csv
+
+2026-04-17 19:20:43,138 - INFO - Stage: Visualization | seed=4 | dataset=test
+2026-04-17 19:20:49,519 - INFO - Loaded window_df: data_Test AD\window_extraction\test\csv\window_importance_seed4.csv
+Loaded token_df: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed4.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed4.csv
+Loaded stability_df: data_Test AD\debug_stability\test\csv\stability_summary_seed4.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\test\figures\seed_4
+
+2026-04-17 19:20:49,519 - INFO - ============================================================
+2026-04-17 19:20:49,519 - INFO - Seed=4 | Dataset=ad
+2026-04-17 19:20:49,520 - INFO - ============================================================
+2026-04-17 19:20:49,520 - INFO - Stage: Window extraction | seed=4 | dataset=ad
+2026-04-17 19:21:03,381 - INFO - ================================================================================
+Window Sliding Analysis | dataset=ad | seed=4
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\ad.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+Processed 80 samples...
+
+Saved files:
+- data_Test AD\window_extraction\ad\csv\window_importance_seed4.csv (4323 windows)
+- data_Test AD\window_extraction\ad\logs\window_extraction_output_seed4.txt
+
+Top 10 windows across all samples:
+Seed 4 | Dataset ad | Sample 110: 'EVERYTHING YOU SEE GOING' | delta=0.1876, abs_delta=0.1876, direction=AD_support
+Seed 4 | Dataset ad | Sample 72: 'YOU SEE GOING ON' | delta=0.1682, abs_delta=0.1682, direction=AD_support
+Seed 4 | Dataset ad | Sample 236: 'THAT YOU SEE GOING' | delta=0.1649, abs_delta=0.1649, direction=AD_support
+Seed 4 | Dataset ad | Sample 218: 'YOU SEE GOING ON' | delta=0.1594, abs_delta=0.1594, direction=AD_support
+Seed 4 | Dataset ad | Sample 187: 'YOU SEE GOING ON' | delta=0.1579, abs_delta=0.1579, direction=AD_support
+Seed 4 | Dataset ad | Sample 31: 'WOULD YOU SEE GOING' | delta=0.1560, abs_delta=0.1560, direction=AD_support
+Seed 4 | Dataset ad | Sample 72: 'ME EVERYTHING YOU SEE' | delta=0.1556, abs_delta=0.1556, direction=AD_support
+Seed 4 | Dataset ad | Sample 245: 'DO YOU SEE GOING' | delta=0.1552, abs_delta=0.1552, direction=AD_support
+Seed 4 | Dataset ad | Sample 142: 'YOU SEE GOING ON' | delta=0.1525, abs_delta=0.1525, direction=AD_support
+Seed 4 | Dataset ad | Sample 123: 'YOU SEE GOING ON' | delta=0.1448, abs_delta=0.1448, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:21:03,381 - INFO - Stage: Token aggregation | seed=4 | dataset=ad
+2026-04-17 19:21:05,767 - INFO - ================================================================================
+Token Analysis | dataset=ad | seed=4
+================================================================================
+Loaded windows: data_Test AD\window_extraction\ad\csv\window_importance_seed4.csv
+Selected candidate windows: 517
+Saved: data_Test AD\token_aggregation\ad\csv\candidate_windows_selected_seed4.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed4.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed4.csv
+
+2026-04-17 19:21:05,767 - INFO - Stage: Stability diagnostics | seed=4 | dataset=ad
+2026-04-17 19:21:20,173 - INFO - ================================================================================
+Stability | dataset=ad
+================================================================================
+Saved: data_Test AD\debug_stability\ad\csv\stability_summary_seed4.csv
+
+2026-04-17 19:21:20,174 - INFO - Stage: Visualization | seed=4 | dataset=ad
+2026-04-17 19:21:26,648 - INFO - Loaded window_df: data_Test AD\window_extraction\ad\csv\window_importance_seed4.csv
+Loaded token_df: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed4.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed4.csv
+Loaded stability_df: data_Test AD\debug_stability\ad\csv\stability_summary_seed4.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\ad\figures\seed_4
+
+2026-04-17 19:21:26,648 - INFO - ============================================================
+2026-04-17 19:21:26,648 - INFO - Seed=4 | Dataset=control
+2026-04-17 19:21:26,648 - INFO - ============================================================
+2026-04-17 19:21:26,648 - INFO - Stage: Window extraction | seed=4 | dataset=control
+2026-04-17 19:21:42,059 - INFO - ================================================================================
+Window Sliding Analysis | dataset=control | seed=4
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\control.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\control\csv\window_importance_seed4.csv (4760 windows)
+- data_Test AD\window_extraction\control\logs\window_extraction_output_seed4.txt
+
+Top 10 windows across all samples:
+Seed 4 | Dataset control | Sample 17: 'THAT YOU SEE GOING' | delta=0.1757, abs_delta=0.1757, direction=AD_support
+Seed 4 | Dataset control | Sample 21: 'EVERYTHING YOU SEE GOING' | delta=0.1673, abs_delta=0.1673, direction=AD_support
+Seed 4 | Dataset control | Sample 286: 'YOU SEE GOING ON' | delta=0.1619, abs_delta=0.1619, direction=AD_support
+Seed 4 | Dataset control | Sample 159: 'THAT YOU SEE GOING' | delta=0.1586, abs_delta=0.1586, direction=AD_support
+Seed 4 | Dataset control | Sample 180: 'ME EVERYTHING YOU SEE' | delta=0.1489, abs_delta=0.1489, direction=AD_support
+Seed 4 | Dataset control | Sample 316: 'NIGHT YOU SEE GOING' | delta=0.1440, abs_delta=0.1440, direction=AD_support
+Seed 4 | Dataset control | Sample 159: 'SEE GOING ON IN' | delta=0.1439, abs_delta=0.1439, direction=AD_support
+Seed 4 | Dataset control | Sample 17: 'ME EVERYTHING THAT YOU' | delta=0.1390, abs_delta=0.1390, direction=AD_support
+Seed 4 | Dataset control | Sample 23: 'EVERYTHING YOU SEE GOING' | delta=0.1375, abs_delta=0.1375, direction=AD_support
+Seed 4 | Dataset control | Sample 17: 'SEE GOING ON IN' | delta=0.1374, abs_delta=0.1374, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:21:42,059 - INFO - Stage: Token aggregation | seed=4 | dataset=control
+2026-04-17 19:21:44,490 - INFO - ================================================================================
+Token Analysis | dataset=control | seed=4
+================================================================================
+Loaded windows: data_Test AD\window_extraction\control\csv\window_importance_seed4.csv
+Selected candidate windows: 541
+Saved: data_Test AD\token_aggregation\control\csv\candidate_windows_selected_seed4.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed4.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed4.csv
+
+2026-04-17 19:21:44,490 - INFO - Stage: Stability diagnostics | seed=4 | dataset=control
+2026-04-17 19:22:00,433 - INFO - ================================================================================
+Stability | dataset=control
+================================================================================
+Saved: data_Test AD\debug_stability\control\csv\stability_summary_seed4.csv
+
+2026-04-17 19:22:00,434 - INFO - Stage: Visualization | seed=4 | dataset=control
+2026-04-17 19:22:06,691 - INFO - Loaded window_df: data_Test AD\window_extraction\control\csv\window_importance_seed4.csv
+Loaded token_df: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed4.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed4.csv
+Loaded stability_df: data_Test AD\debug_stability\control\csv\stability_summary_seed4.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\control\figures\seed_4
+
+2026-04-17 19:22:06,691 - INFO - ============================================================
+2026-04-17 19:22:06,691 - INFO - Seed=5 | Dataset=test
+2026-04-17 19:22:06,692 - INFO - ============================================================
+2026-04-17 19:22:06,692 - INFO - Stage: Window extraction | seed=5 | dataset=test
+2026-04-17 19:22:18,467 - INFO - ================================================================================
+Window Sliding Analysis | dataset=test | seed=5
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\test.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\test\csv\window_importance_seed5.csv (3661 windows)
+- data_Test AD\window_extraction\test\logs\window_extraction_output_seed5.txt
+
+Top 10 windows across all samples:
+Seed 5 | Dataset test | Sample 33: 'NOVE EBUT HE'S FALLEN' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 5 | Dataset test | Sample 34: 'EVERYTHING YOU SEE ON' | delta=0.1047, abs_delta=0.1047, direction=AD_support
+Seed 5 | Dataset test | Sample 61: 'THAT HE SEE GOING' | delta=0.0948, abs_delta=0.0948, direction=AD_support
+Seed 5 | Dataset test | Sample 62: 'YOU SEE GOING ON' | delta=0.0939, abs_delta=0.0939, direction=AD_support
+Seed 5 | Dataset test | Sample 25: 'YOU SEE GOING ON' | delta=0.0837, abs_delta=0.0837, direction=AD_support
+Seed 5 | Dataset test | Sample 34: 'TO SELME EVERYTHING YOU' | delta=0.0831, abs_delta=0.0831, direction=AD_support
+Seed 5 | Dataset test | Sample 14: 'EVERYTHING YOU SEE HAPPENING' | delta=0.0816, abs_delta=0.0816, direction=AD_support
+Seed 5 | Dataset test | Sample 62: 'EVERYTHING THAT YOU SEE' | delta=0.0806, abs_delta=0.0806, direction=AD_support
+Seed 5 | Dataset test | Sample 16: 'KILLED IF HE LET'S' | delta=0.0789, abs_delta=0.0789, direction=AD_support
+Seed 5 | Dataset test | Sample 61: 'SEE GOING ON WIT' | delta=0.0788, abs_delta=0.0788, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:22:18,467 - INFO - Stage: Token aggregation | seed=5 | dataset=test
+2026-04-17 19:22:20,651 - INFO - ================================================================================
+Token Analysis | dataset=test | seed=5
+================================================================================
+Loaded windows: data_Test AD\window_extraction\test\csv\window_importance_seed5.csv
+Selected candidate windows: 349
+Saved: data_Test AD\token_aggregation\test\csv\candidate_windows_selected_seed5.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed5.csv
+Saved: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed5.csv
+
+2026-04-17 19:22:20,652 - INFO - Stage: Stability diagnostics | seed=5 | dataset=test
+2026-04-17 19:22:32,402 - INFO - ================================================================================
+Stability | dataset=test
+================================================================================
+Saved: data_Test AD\debug_stability\test\csv\stability_summary_seed5.csv
+
+2026-04-17 19:22:32,402 - INFO - Stage: Visualization | seed=5 | dataset=test
+2026-04-17 19:22:38,393 - INFO - Loaded window_df: data_Test AD\window_extraction\test\csv\window_importance_seed5.csv
+Loaded token_df: data_Test AD\token_aggregation\test\csv\token_attribution_all_seed5.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\test\csv\token_attribution_aggregated_seed5.csv
+Loaded stability_df: data_Test AD\debug_stability\test\csv\stability_summary_seed5.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\test\figures\seed_5
+
+2026-04-17 19:22:38,394 - INFO - ============================================================
+2026-04-17 19:22:38,394 - INFO - Seed=5 | Dataset=ad
+2026-04-17 19:22:38,394 - INFO - ============================================================
+2026-04-17 19:22:38,394 - INFO - Stage: Window extraction | seed=5 | dataset=ad
+2026-04-17 19:22:50,733 - INFO - ================================================================================
+Window Sliding Analysis | dataset=ad | seed=5
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\ad.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+Processed 80 samples...
+
+Saved files:
+- data_Test AD\window_extraction\ad\csv\window_importance_seed5.csv (4323 windows)
+- data_Test AD\window_extraction\ad\logs\window_extraction_output_seed5.txt
+
+Top 10 windows across all samples:
+Seed 5 | Dataset ad | Sample 110: 'EVERYTHING YOU SEE GOING' | delta=0.1876, abs_delta=0.1876, direction=AD_support
+Seed 5 | Dataset ad | Sample 72: 'YOU SEE GOING ON' | delta=0.1682, abs_delta=0.1682, direction=AD_support
+Seed 5 | Dataset ad | Sample 236: 'THAT YOU SEE GOING' | delta=0.1649, abs_delta=0.1649, direction=AD_support
+Seed 5 | Dataset ad | Sample 218: 'YOU SEE GOING ON' | delta=0.1594, abs_delta=0.1594, direction=AD_support
+Seed 5 | Dataset ad | Sample 187: 'YOU SEE GOING ON' | delta=0.1579, abs_delta=0.1579, direction=AD_support
+Seed 5 | Dataset ad | Sample 31: 'WOULD YOU SEE GOING' | delta=0.1560, abs_delta=0.1560, direction=AD_support
+Seed 5 | Dataset ad | Sample 72: 'ME EVERYTHING YOU SEE' | delta=0.1556, abs_delta=0.1556, direction=AD_support
+Seed 5 | Dataset ad | Sample 245: 'DO YOU SEE GOING' | delta=0.1552, abs_delta=0.1552, direction=AD_support
+Seed 5 | Dataset ad | Sample 142: 'YOU SEE GOING ON' | delta=0.1525, abs_delta=0.1525, direction=AD_support
+Seed 5 | Dataset ad | Sample 123: 'YOU SEE GOING ON' | delta=0.1448, abs_delta=0.1448, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:22:50,733 - INFO - Stage: Token aggregation | seed=5 | dataset=ad
+2026-04-17 19:22:53,220 - INFO - ================================================================================
+Token Analysis | dataset=ad | seed=5
+================================================================================
+Loaded windows: data_Test AD\window_extraction\ad\csv\window_importance_seed5.csv
+Selected candidate windows: 517
+Saved: data_Test AD\token_aggregation\ad\csv\candidate_windows_selected_seed5.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed5.csv
+Saved: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed5.csv
+
+2026-04-17 19:22:53,220 - INFO - Stage: Stability diagnostics | seed=5 | dataset=ad
+2026-04-17 19:23:05,893 - INFO - ================================================================================
+Stability | dataset=ad
+================================================================================
+Saved: data_Test AD\debug_stability\ad\csv\stability_summary_seed5.csv
+
+2026-04-17 19:23:05,893 - INFO - Stage: Visualization | seed=5 | dataset=ad
+2026-04-17 19:23:11,762 - INFO - Loaded window_df: data_Test AD\window_extraction\ad\csv\window_importance_seed5.csv
+Loaded token_df: data_Test AD\token_aggregation\ad\csv\token_attribution_all_seed5.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\ad\csv\token_attribution_aggregated_seed5.csv
+Loaded stability_df: data_Test AD\debug_stability\ad\csv\stability_summary_seed5.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\ad\figures\seed_5
+
+2026-04-17 19:23:11,762 - INFO - ============================================================
+2026-04-17 19:23:11,762 - INFO - Seed=5 | Dataset=control
+2026-04-17 19:23:11,762 - INFO - ============================================================
+2026-04-17 19:23:11,762 - INFO - Stage: Window extraction | seed=5 | dataset=control
+2026-04-17 19:23:25,167 - INFO - ================================================================================
+Window Sliding Analysis | dataset=control | seed=5
+================================================================================
+Dataset path: data_Test AD\preprocess_data\csv\control.csv
+Vectorizer path: data_Test AD\train_classifier\model\tfidf_vectorizer.joblib
+Model path: data_Test AD\train_classifier\model\logistic_regression_model.joblib
+Window length=4, stride=2
+Distribution samples=10, noise_scale=0.003
+Processed 10 samples...
+Processed 20 samples...
+Processed 30 samples...
+Processed 40 samples...
+Processed 50 samples...
+Processed 60 samples...
+Processed 70 samples...
+
+Saved files:
+- data_Test AD\window_extraction\control\csv\window_importance_seed5.csv (4760 windows)
+- data_Test AD\window_extraction\control\logs\window_extraction_output_seed5.txt
+
+Top 10 windows across all samples:
+Seed 5 | Dataset control | Sample 17: 'THAT YOU SEE GOING' | delta=0.1757, abs_delta=0.1757, direction=AD_support
+Seed 5 | Dataset control | Sample 21: 'EVERYTHING YOU SEE GOING' | delta=0.1673, abs_delta=0.1673, direction=AD_support
+Seed 5 | Dataset control | Sample 286: 'YOU SEE GOING ON' | delta=0.1619, abs_delta=0.1619, direction=AD_support
+Seed 5 | Dataset control | Sample 159: 'THAT YOU SEE GOING' | delta=0.1586, abs_delta=0.1586, direction=AD_support
+Seed 5 | Dataset control | Sample 180: 'ME EVERYTHING YOU SEE' | delta=0.1489, abs_delta=0.1489, direction=AD_support
+Seed 5 | Dataset control | Sample 316: 'NIGHT YOU SEE GOING' | delta=0.1440, abs_delta=0.1440, direction=AD_support
+Seed 5 | Dataset control | Sample 159: 'SEE GOING ON IN' | delta=0.1439, abs_delta=0.1439, direction=AD_support
+Seed 5 | Dataset control | Sample 17: 'ME EVERYTHING THAT YOU' | delta=0.1390, abs_delta=0.1390, direction=AD_support
+Seed 5 | Dataset control | Sample 23: 'EVERYTHING YOU SEE GOING' | delta=0.1375, abs_delta=0.1375, direction=AD_support
+Seed 5 | Dataset control | Sample 17: 'SEE GOING ON IN' | delta=0.1374, abs_delta=0.1374, direction=AD_support
+
+================================================================================
+
+2026-04-17 19:23:25,168 - INFO - Stage: Token aggregation | seed=5 | dataset=control
+2026-04-17 19:23:27,600 - INFO - ================================================================================
+Token Analysis | dataset=control | seed=5
+================================================================================
+Loaded windows: data_Test AD\window_extraction\control\csv\window_importance_seed5.csv
+Selected candidate windows: 541
+Saved: data_Test AD\token_aggregation\control\csv\candidate_windows_selected_seed5.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed5.csv
+Saved: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed5.csv
+
+2026-04-17 19:23:27,600 - INFO - Stage: Stability diagnostics | seed=5 | dataset=control
+2026-04-17 19:23:42,350 - INFO - ================================================================================
+Stability | dataset=control
+================================================================================
+Saved: data_Test AD\debug_stability\control\csv\stability_summary_seed5.csv
+
+2026-04-17 19:23:42,351 - INFO - Stage: Visualization | seed=5 | dataset=control
+2026-04-17 19:23:48,551 - INFO - Loaded window_df: data_Test AD\window_extraction\control\csv\window_importance_seed5.csv
+Loaded token_df: data_Test AD\token_aggregation\control\csv\token_attribution_all_seed5.csv
+Loaded aggregated_df: data_Test AD\token_aggregation\control\csv\token_attribution_aggregated_seed5.csv
+Loaded stability_df: data_Test AD\debug_stability\control\csv\stability_summary_seed5.csv
+Token metrics to plot: ['raw_importance', 'mean_importance', 'log_adjusted_importance', 'signed_mean_delta']
+Figures saved to data_Test AD\visualization\control\figures\seed_5
+
+2026-04-17 19:23:48,552 - INFO - ============================================================
+2026-04-17 19:23:48,552 - INFO - Pipeline finished
