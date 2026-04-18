@@ -1,0 +1,6 @@
+[WARN] dataset=test: window figure generation failed partially: Index contains duplicate entries, cannot reshape
+[DONE] dataset=test: seeds=[1, 2, 3, 4, 5], windows=3661, stable_windows=3661, token_summary=yes
+[WARN] dataset=ad: window figure generation failed partially: Index contains duplicate entries, cannot reshape
+[DONE] dataset=ad: seeds=[1, 2, 3, 4, 5], windows=4323, stable_windows=4323, token_summary=yes
+[WARN] dataset=control: window figure generation failed partially: Index contains duplicate entries, cannot reshape
+[DONE] dataset=control: seeds=[1, 2, 3, 4, 5], windows=4760, stable_windows=4760, token_summary=yes

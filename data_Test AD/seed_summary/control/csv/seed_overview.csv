@@ -1,0 +1,2 @@
+dataset,n_seed_files_detected,seed_list,n_unique_samples,n_unique_windows,n_stable_windows,mean_direction_consistency,mean_abs_delta_window,mean_std_delta_window,topk_overlap_mean,topk_overlap_std,token_summary_available
+control,5,"1,2,3,4,5",79,4760,4760,1.0,0.01576417595927032,2.372350660275243e-19,0.889647377938517,0.16504831416852844,True
